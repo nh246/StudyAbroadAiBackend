@@ -1,0 +1,23 @@
+[project]
+name = "goabroadai-backend"
+version = "0.1.0"
+description = "StudyAbroadAi FastAPI Backend"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "pydantic-settings",
+    "langchain",
+    "langchain-community",
+    "langchain-openai",
+    "groq",
+    "tavily-python",
+    "PyMuPDF",
+    "httpx",
+    "python-multipart",
+]
+
+[dependency-groups]
+dev = [
+    "workers-py",
+    "workers-runtime-sdk",
+]
