@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.v1.api import router as api_v1_router
+from workers import WorkerEntrypoint
+import asgi
 
 app = FastAPI(
     title="StudyAbroadAi - Your AI Big Bro for Studying Abroad",
@@ -12,9 +14,9 @@ app = FastAPI(
 
 # CORS Configuration
 origins = [
-    "http://localhost:3000",  # Next.js local
-    "https://studyabroadai.vercel.app", # Vercel production
-    "*", # Allow all for now (development)
+    "http://localhost:3000",             # Next.js local
+    "https://studyabroadai.vercel.app",  # Vercel production
+    "*",                                 # Allow all for now
 ]
 
 app.add_middleware(
@@ -39,3 +41,13 @@ def home():
 @app.get("/health", tags=["Health"])
 def health_check():
     return {"status": "healthy", "service": "StudyAbroadAi backend"}
+
+# ---------------------------------------------------------------------------
+# CLOUDFLARE WORKER ENTRYPOINT
+# 
+# ---------------------------------------------------------------------------
+class Default(WorkerEntrypoint):
+    async def fetch(self, request):
+        # asgi.fetch bridges the Worker request to the FastAPI app.
+        # self.env allows your app to access secrets like GITHUB_TOKEN.
+        return await asgi.fetch(app, request, self.env)

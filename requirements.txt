@@ -1,23 +1,23 @@
-# Web Framework
-fastapi[standard]>=0.115.0
-uvicorn>=0.30.0
-pydantic-settings>=2.4.0
+# Web Framework (Cloudflare provides the ASGI server)
+fastapi==0.116.1
+pydantic==2.10.6
 
-# AI & LLM
-langchain>=0.3.0
-langchain-google-genai>=2.0.0
-langchain-community>=0.3.0
-huggingface-hub>=0.20.0
-langchain-openai>=0.1.0
-groq>=0.5.0
+# AI & LLM (Core LangChain for Pyodide)
+langchain==0.3.0
+langchain-community==0.3.0
+langchain-openai==0.1.0
+langchain-google-genai==2.0.0
+huggingface-hub==0.20.0
+groq==0.5.0
 
 # Web Search
 tavily-python>=0.3.0
 
-# Document Parsing (CV)
-pdfplumber>=0.11.0
+# Document Parsing
+# Note: pdfplumber has heavy dependencies. 
+# PyMuPDF is now natively supported in Pyodide/Cloudflare and is faster.
+PyMuPDF==1.26.3
 
 # Utilities
-python-multipart>=0.0.9
-python-dotenv>=1.0.1
-requests>=2.31.0
+python-multipart==0.0.9
+httpx==0.28.1
