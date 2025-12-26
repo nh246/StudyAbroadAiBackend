@@ -4,16 +4,16 @@ version = "0.1.0"
 description = "StudyAbroadAi FastAPI Backend"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi",
-    "pydantic-settings",
-    "langchain",
-    "langchain-community",
-    "langchain-openai",
-    "groq",
-    "tavily-python",
-    "PyMuPDF",
-    "httpx",
-    "python-multipart",
+    "fastapi>=0.115.0",
+    "pydantic-settings>=2.4.0",
+    "langchain>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-openai>=0.1.0",
+    "groq>=0.5.0",
+    "tavily-python>=0.3.0",
+    "httpx>=0.27.0",
+    "PyMuPDF>=1.23.0",
+    "python-multipart>=0.0.9"
 ]
 
 [dependency-groups]
