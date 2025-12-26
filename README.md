@@ -1,4 +1,5 @@
 # StudyAbroadAi Backend
+# StudyAbroadAi Frontend Repo : https://github.com/nh246/Studyabroadai
 
 FastAPI backend using **GitHub Models o4-mini** and **Tavily Search** for AI-powered study abroad consultation.
 
