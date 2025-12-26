@@ -1,7 +1,6 @@
 # Search Service - Tavily web search integration
 
 from typing import List, Dict
-import requests
 from core.config import settings
 
 
